@@ -79,21 +79,6 @@ public class AgentDownloadController extends BaseController {
 	}
 
 
-	/**
-	 * Download the latest agent.
-	 *
-	 * @param owner   agent owner
-	 * @param region  agent region
-	 * @param request request.
-	 */
-	@RequestMapping(value = "/download")
-	public String download(@RequestParam(value = "owner", required = false) String owner,
-	                       @RequestParam(value = "region", required = false) String region,
-	                       ModelMap modelMap,
-	                       HttpServletRequest request) {
-		return downloadFile(owner, region, modelMap, request);
-	}
-
 	private String downloadFile(String owner, String region, ModelMap modelMap, HttpServletRequest request) {
 		String connectingIP = request.getServerName();
 		int port = getConfig().getControllerPort();
@@ -111,5 +96,20 @@ public class AgentDownloadController extends BaseController {
 		} catch (Exception e) {
 			throw processException(e);
 		}
+	}
+
+	/**
+	 * Download the latest agent.
+	 *
+	 * @param owner   agent owner
+	 * @param region  agent region
+	 * @param request request.
+	 */
+	@RequestMapping(value = "/download")
+	public String download(@RequestParam(value = "owner", required = false) String owner,
+						   @RequestParam(value = "region", required = false) String region,
+						   ModelMap modelMap,
+						   HttpServletRequest request) {
+		return downloadFile(owner, region, modelMap, request);
 	}
 }
