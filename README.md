@@ -24,3 +24,10 @@
 
 ## 后期规划：分布式压测平台2.0
  完全重新架构，实现高可用的分布式全链路压测平台
+
+##安装说明
+* 错误: 找不到或无法加载主类 org.apache.maven.wrapper.MavenWrapperMain
+  解决办法：执行：mvn -N io.takari:maven:wrapper
+* 执行install_maven_lib.bat 安装本地jar到本地maven仓库
+* 错误：-Dmaven.multiModuleProjectDirectory system property is not set. Check $M2_HOME environment variable and mvn script match.
+  解决办法：在Settings中搜索JRE,增加 -Dmaven.multiModuleProjectDirectory=$M2_HOME
